@@ -144,22 +144,22 @@ class Phoggle
 		Console.WriteLine("");
 
 		//for each item in the playerInputList, check if the item is contained within the gameWordsToGuessList
-		foreach (var VARIABLE in playerInputList)
+		foreach (var aGuess in playerInputList)
 		{
-			var theGuess = gameWordsToGuessList.Contains(VARIABLE).ToString();
-			Console.WriteLine(theGuess);
+			var isTheGuessCorrect = gameWordsToGuessList.Contains(aGuess).ToString();
+			Console.WriteLine(isTheGuessCorrect);
 		}
 
 		Console.WriteLine("");
 		Console.WriteLine("Does the submitted word receive a score?");
 		Console.WriteLine("");
 
-		foreach (var VARIABLE in playerInputList)
+		foreach (var scorableGuess in playerInputList)
 		{
 			
-			var theGuess = gameWordScoreList.Contains(VARIABLE).ToString();
-			Console.WriteLine(theGuess);
-			gameWordScoreList.Remove(VARIABLE);
+			var isTheGuessAScore = gameWordScoreList.Contains(scorableGuess).ToString();
+			Console.WriteLine(isTheGuessAScore);
+			gameWordScoreList.Remove(scorableGuess);
 		}
 		foreach (var VARIABLE in gameWordScoreList)
 		{
