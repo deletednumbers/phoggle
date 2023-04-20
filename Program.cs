@@ -25,53 +25,14 @@ class Phoggle
 	private static List<string> gameWordScoreList = new List<string>(gameWordsToGuessList);
 	private static int playerScore = 0;
 	private static List<string> aDie = new List<string> { "E", "C", "T", "A", "H", "W" };
-	private static List<string> theBoardARowOfDice;// = new List<string> { aDieResult, aDieResult, aDieResult, aDieResult, aDieResult };
-	private static List<List<string>> theBoardFullOfDice;// = new List<List<string>> { theBoardARowOfDice, theBoardARowOfDice, theBoardARowOfDice, theBoardARowOfDice, theBoardARowOfDice};
-
-	
 	static void Main(string[] args)
 	{
 		Random rnd = new Random();
 
-		string die51=  aDie[rnd.Next(6)];
-		string die52=  aDie[rnd.Next(6)];
-		string die53 = aDie[rnd.Next(6)];
-		string die54 = aDie[rnd.Next(6)];
-		string die55 = aDie[rnd.Next(6)];
-		string die11 = aDie[rnd.Next(6)];
-		string die12 = aDie[rnd.Next(6)];
-		string die13 = aDie[rnd.Next(6)];
-		string die14 = aDie[rnd.Next(6)];
-		string die15 = aDie[rnd.Next(6)];
-		string die21 = aDie[rnd.Next(6)];
-		string die22 = aDie[rnd.Next(6)];
-		string die23 = aDie[rnd.Next(6)];
-		string die24 = aDie[rnd.Next(6)];
-		string die25 = aDie[rnd.Next(6)];
-		string die31 = aDie[rnd.Next(6)];
-		string die32 = aDie[rnd.Next(6)];
-		string die33 = aDie[rnd.Next(6)];
-		string die34 = aDie[rnd.Next(6)];
-		string die35 = aDie[rnd.Next(6)];
-		string die41 = aDie[rnd.Next(6)];
-		string die42 = aDie[rnd.Next(6)];
-		string die43 = aDie[rnd.Next(6)];
-		string die44 = aDie[rnd.Next(6)];
-		string die45 = aDie[rnd.Next(6)];
+        List<List<string>> theBoardFullOfDice = MakeABoard();
 
-
-		List<string> row1 = new List<string> { die51, die52, die53, die54, die55 };
-		List<string> row2 = new List<string> { die11, die12, die13, die14, die15 };
-		List<string> row3 = new List<string> { die21, die22, die23, die24, die25 };
-		List<string> row4 = new List<string> { die31, die32, die33, die34, die35 };
-		List<string> row5 = new List<string> { die41, die42, die43, die44, die45 };
-
-		theBoardFullOfDice = new List<List<string>> { row1, row2, row3, row4, row5 };
-
-
-
-		//create the words to guess list
-		for (var index = 0; index < gameWordsToGuessList.Count; index++)
+        //create the words to guess list
+        for (var index = 0; index < gameWordsToGuessList.Count; index++)
 		{
 			Console.WriteLine(gameWordsToGuessList[index]);
 		}
@@ -111,7 +72,29 @@ class Phoggle
 
 	}
 
-	private static void SetTimer()
+    private static List<string> MakeARowOfDice()
+    {
+        Random rnd = new Random();
+
+        List<string> row = new List<string>();
+        for (var index = 0; index < 5; index++)
+        {
+            row.Add(aDie[rnd.Next(6)]);
+        }
+        return row;
+    }
+    private static List<List<string>> MakeABoard()
+    {
+        Random rnd = new Random();
+
+        List<List<string>> board = new List<List<string>>();
+        for (var index = 0; index < 5; index++)
+        {
+            board.Add(MakeARowOfDice());
+        }
+        return board;
+    }
+    private static void SetTimer()
 	{
 		// Create a timer with a two second interval.
 		aTimer = new System.Timers.Timer(10000);
