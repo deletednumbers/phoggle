@@ -157,14 +157,13 @@ class Phoggle
 		foreach (var scorableGuess in playerInputList)
 		{
 			
-			var isTheGuessAScore = gameWordScoreList.Contains(scorableGuess).ToString();
+			var isTheGuessAScore = gameWordScoreList.Contains(scorableGuess);
+            if (isTheGuessAScore == true)
+			{
+                gameWordScoreList.Remove(scorableGuess);
+				playerScore += 1;
+            }
 			Console.WriteLine(isTheGuessAScore);
-			gameWordScoreList.Remove(scorableGuess);
-		}
-		foreach (var VARIABLE in gameWordScoreList)
-		{
-			playerScore += 1;
-
 		}
 		Console.WriteLine("");
 		Console.WriteLine("The player's score is " + playerScore);
