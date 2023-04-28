@@ -20,7 +20,7 @@
 		private static List<string> _gameWordsToGuessList = new List<string> { "the guess", "WHAT", "CAT", "HAT" };
 		private static List<string> _gameWordScoreList = new List<string>(_gameWordsToGuessList);
 		private static int _playerScore = 0;
-		private static List<string> _aDie = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static List<string> _testDie = new List<string> { "E", "C", "T", "A", "H", "W" };
 
 		static void Main(string[] args)
 		{
@@ -74,7 +74,7 @@
 			List<string> row = new List<string>();
 			for (var index = 0; index < 5; index++)
 			{
-				row.Add(_aDie[rnd.Next(6)]);
+				row.Add(_testDie[rnd.Next(6)]);
 			}
 
 			return row;
