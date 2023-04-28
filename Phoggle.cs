@@ -38,17 +38,13 @@
 			Console.WriteLine("write as many of these words as you can: ");
 			Console.WriteLine("");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][0] + "-|-" + theBoardFullOfDice[1][0] + "-|-" +
-			                  theBoardFullOfDice[2][0] + "-|-" + theBoardFullOfDice[3][0] + "-|-");
+			Console.WriteLine("|-" + theBoardFullOfDice[0][0] + "-|-" + theBoardFullOfDice[1][0] + "-|-" + theBoardFullOfDice[2][0] + "-|-" + theBoardFullOfDice[3][0] + "-|");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][1] + "-|-" + theBoardFullOfDice[1][1] + "-|-" +
-			                  theBoardFullOfDice[2][1] + "-|-" + theBoardFullOfDice[3][1] + "-|-");
+			Console.WriteLine("|-" + theBoardFullOfDice[0][1] + "-|-" + theBoardFullOfDice[1][1] + "-|-" + theBoardFullOfDice[2][1] + "-|-" + theBoardFullOfDice[3][1] + "-|");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][2] + "-|-" + theBoardFullOfDice[1][2] + "-|-" +
-			                  theBoardFullOfDice[2][2] + "-|-" + theBoardFullOfDice[3][2] + "-|-");
+			Console.WriteLine("|-" + theBoardFullOfDice[0][2] + "-|-" + theBoardFullOfDice[1][2] + "-|-" + theBoardFullOfDice[2][2] + "-|-" + theBoardFullOfDice[3][2] + "-|");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][3] + "-|-" + theBoardFullOfDice[1][3] + "-|-" +
-			                  theBoardFullOfDice[2][3] + "-|-" + theBoardFullOfDice[3][3] + "-|-");
+			Console.WriteLine("|-" + theBoardFullOfDice[0][3] + "-|-" + theBoardFullOfDice[1][3] + "-|-" + theBoardFullOfDice[2][3] + "-|-" + theBoardFullOfDice[3][3] + "-|");
 			Console.WriteLine("|---|---|---|---|");
 			Console.WriteLine("");
 
