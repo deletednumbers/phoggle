@@ -10,8 +10,6 @@
 
 	class Phoggle
 	{
-		// See https://aka.ms/new-console-template for more information
-
 		//to do
 		//find words on board and add to _gameWordsToGuessList
 		//define neighbors
