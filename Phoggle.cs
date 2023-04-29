@@ -77,19 +77,10 @@ namespace Phoggle
 		private static int PullADieFromBag()
 		{
 			Random rnd = new Random();
-			here:
 			int randInt = rnd.Next(_bagOfDice.Count);
 			thisThing = _bagOfDice[randInt];
-			bool compareThisThing = _bagOfDice.Contains(thisThing);
-			if (compareThisThing == true)
-			{
-				_bagOfDice.Remove(thisThing);
-				return thisThing;
-			}
-			else
-			{
-				goto here;
-			}
+			_bagOfDice.Remove(thisThing);
+			return thisThing;
 		}
 
 		private static List<string> MakeARowOfDice()
