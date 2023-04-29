@@ -25,7 +25,7 @@ namespace Phoggle
 		private static int _playerScore = 0;
 		private static List<string> _testDie = new List<string> { "E", "C", "T", "A", "H", "W" };
 		private static List<int> _bagOfDice = new List<int>{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-		private static int thisThing;
+		private static int dieFromBag;
 
 
 
@@ -78,9 +78,9 @@ namespace Phoggle
 		{
 			Random rnd = new Random();
 			int randInt = rnd.Next(_bagOfDice.Count);
-			thisThing = _bagOfDice[randInt];
-			_bagOfDice.Remove(thisThing);
-			return thisThing;
+			dieFromBag = _bagOfDice[randInt];
+			_bagOfDice.Remove(dieFromBag);
+			return dieFromBag;
 		}
 
 		private static List<string> MakeARowOfDice()
@@ -90,7 +90,7 @@ namespace Phoggle
 			for (var index = 0; index < 4; index++)
 			{
 				PullADieFromBag();
-				PhoggleDice aDie = new PhoggleDice(thisThing);
+				PhoggleDice aDie = new PhoggleDice(dieFromBag);
 				row.Add(aDie.Roll());
 			}
 
@@ -224,6 +224,29 @@ namespace Phoggle
 		private static readonly List<string> StandardDie14 = new List<string> { "R", "A", "L", "E", "S", "C" };
 		private static readonly List<string> StandardDie15 = new List<string> { "U", "W", "I", "L", "R", "G" };
 		private static readonly List<string> StandardDie16 = new List<string> { "P", "A", "C", "E", "M", "D" };
+
+		//use the dice below for testing
+		/*
+		private static readonly List<string> StandardDie1  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie2  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie3  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie4  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie5  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie6  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie7  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie8  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie9  = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie10 = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie11 = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie12 = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie13 = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie14 = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie15 = new List<string> { "E", "C", "T", "A", "H", "W" };
+		private static readonly List<string> StandardDie16 = new List<string> { "E", "C", "T", "A", "H", "W" };
+		*/
+
+
+
 	}
 
 	class PhoggleBoard
