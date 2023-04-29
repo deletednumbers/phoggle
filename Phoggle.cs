@@ -24,8 +24,8 @@ namespace Phoggle
 		private static List<string> _gameWordScoreList = new List<string>(_gameWordsToGuessList);
 		private static int _playerScore = 0;
 		private static List<string> _testDie = new List<string> { "E", "C", "T", "A", "H", "W" };
-		private static List<int> _bagOfDice = new List<int>{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-		private static int dieFromBag;
+		private static List<PhoggleDice> _bagOfDice = PhoggleDice.GetAllDice();
+
 
 
 
@@ -45,13 +45,13 @@ namespace Phoggle
 			Console.WriteLine("write as many of these words as you can: ");
 			Console.WriteLine("");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][0] + "-|-" + theBoardFullOfDice[1][0] + "-|-" + theBoardFullOfDice[2][0] + "-|-" + theBoardFullOfDice[3][0] + "-|");
+			Console.WriteLine("|-" + theBoardFullOfDice[0][0] + "-|-" + theBoardFullOfDice[0][1] + "-|-" + theBoardFullOfDice[0][2] + "-|-" + theBoardFullOfDice[0][3] + "-|");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][1] + "-|-" + theBoardFullOfDice[1][1] + "-|-" + theBoardFullOfDice[2][1] + "-|-" + theBoardFullOfDice[3][1] + "-|");
+			Console.WriteLine("|-" + theBoardFullOfDice[1][0] + "-|-" + theBoardFullOfDice[1][1] + "-|-" + theBoardFullOfDice[1][2] + "-|-" + theBoardFullOfDice[1][3] + "-|");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][2] + "-|-" + theBoardFullOfDice[1][2] + "-|-" + theBoardFullOfDice[2][2] + "-|-" + theBoardFullOfDice[3][2] + "-|");
+			Console.WriteLine("|-" + theBoardFullOfDice[2][0] + "-|-" + theBoardFullOfDice[2][1] + "-|-" + theBoardFullOfDice[2][2] + "-|-" + theBoardFullOfDice[2][3] + "-|");
 			Console.WriteLine("|---|---|---|---|");
-			Console.WriteLine("|-" + theBoardFullOfDice[0][3] + "-|-" + theBoardFullOfDice[1][3] + "-|-" + theBoardFullOfDice[2][3] + "-|-" + theBoardFullOfDice[3][3] + "-|");
+			Console.WriteLine("|-" + theBoardFullOfDice[3][0] + "-|-" + theBoardFullOfDice[3][1] + "-|-" + theBoardFullOfDice[3][2] + "-|-" + theBoardFullOfDice[3][3] + "-|");
 			Console.WriteLine("|---|---|---|---|");
 			Console.WriteLine("");
 
@@ -74,11 +74,12 @@ namespace Phoggle
 
 		}
 
-		private static int PullADieFromBag()
+		private static PhoggleDice PullADieFromBag()
 		{
 			Random rnd = new Random();
 			int randInt = rnd.Next(_bagOfDice.Count);
-			dieFromBag = _bagOfDice[randInt];
+			
+			var dieFromBag = _bagOfDice[randInt];
 			_bagOfDice.Remove(dieFromBag);
 			return dieFromBag;
 		}
@@ -89,8 +90,7 @@ namespace Phoggle
 			List<string> row = new List<string>();
 			for (var index = 0; index < 4; index++)
 			{
-				PullADieFromBag();
-				PhoggleDice aDie = new PhoggleDice(dieFromBag);
+				PhoggleDice aDie = PullADieFromBag();
 				row.Add(aDie.Roll());
 			}
 
@@ -245,6 +245,17 @@ namespace Phoggle
 		private static readonly List<string> StandardDie16 = new List<string> { "E", "C", "T", "A", "H", "W" };
 		*/
 
+		public static List<PhoggleDice> GetAllDice()
+		{
+			var result = new List<PhoggleDice>();
+			for (var i = 1; i < 17; i++)
+			{
+				result.Add(new PhoggleDice(i));
+			}
+
+			return result;
+
+		}
 
 
 	}
